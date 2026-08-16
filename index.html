@@ -1,58 +1,186 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>QUEEN OF GOLDEN PAWS</title>
-    <Style>
-    body {
-      margin:0;
-      font-family: Arial, sans-serif;
-      text-align: center;
-      background: #fff4d6;
-      colour: #5a3d2b;
-    }
-    container {
-      padding: 80px 20px;
-    }
-      
-      puppy {
-            font-size: 90px;
-        }
-        h1 {
-             font-size: 40px;
-        }
-      p {
-         font-size: 20px;
-      }
-      button {
-         background: #d99a3d;
-        color: white;
-        border: none;
-        padding: 15px 25px;
-        border-radius: 25px;
-        font-size: 18px;
-      }
-      #message {
-        margin-top: 25px;
-        font-size: 22px;
-      }
-    </style>
-  </head>
+<head>
+    <title>Queen of Golden Paws 🐾</title>
 
-  <body>
-     <div class="container">
-       <div class="puppy"> </div>
-       <h1>Queen of golden paws </h1>
-       <p>Welcome to my little world! </p>
-       <button onclick="showMessage()">
-          Click Me
-       </body>
-     </div id="message"></div> 
-  </div> 
-<script>
-   function ShowMessage() {
-document.getElmentById("message").innerHTML = "Hello Luna! your my faviourte!;
-   }
-</script>
-  </body>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: linear-gradient(135deg, #fff4d6, #ffe1ec);
+            color: #5a3d2b;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .container {
+            padding: 60px 20px;
+        }
+
+        .puppy {
+            font-size: 90px;
+            animation: bounce 2s infinite;
+        }
+
+        h1 {
+            font-size: 42px;
+            margin: 15px 0;
+        }
+
+        p {
+            font-size: 20px;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 16px 30px;
+            border: none;
+            border-radius: 30px;
+            background: #d99a3d;
+            color: white;
+            font-size: 19px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px #c9a66b;
+        }
+
+        button:hover {
+            transform: scale(1.08);
+        }
+
+        #surprise {
+            display: none;
+            margin-top: 35px;
+            animation: appear 1s ease;
+        }
+
+        #surprise h2 {
+            font-size: 30px;
+        }
+
+        .heart {
+            position: fixed;
+            font-size: 25px;
+            animation: floatUp 3s linear forwards;
+            pointer-events: none;
+        }
+
+        .photo-box {
+            margin: 25px auto;
+            width: 260px;
+            height: 260px;
+            border-radius: 25px;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 20px #d8bfa5;
+            font-size: 18px;
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
+        @keyframes appear {
+            from {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes floatUp {
+            from {
+                bottom: 0;
+                opacity: 1;
+            }
+
+            to {
+                bottom: 100%;
+                opacity: 0;
+                transform: translateX(80px);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="puppy">🐶🐾</div>
+
+        <h1>Queen of Golden Paws 👑</h1>
+
+        <p>Welcome to my little world! 💕</p>
+
+        <button onclick="showSurprise()">
+            Click Me 🐾
+        </button>
+
+        <div id="surprise">
+
+            <h2>🎀 Surprise! 🎀</h2>
+
+            <p>
+                Hello hooman! 🐶💗<br>
+                You are my favourite! 🥹🐾
+            </p>
+
+            <div class="photo-box">
+                🐶<br>
+                Your puppy photo<br>
+                will come here!
+            </div>
+
+            <p>
+                🌸 Lots of love & paw-some memories 🌸
+            </p>
+
+        </div>
+
+    </div>
+
+    <script>
+        function showSurprise() {
+
+            document.getElementById("surprise").style.display = "block";
+
+            for (let i = 0; i < 20; i++) {
+
+                let heart = document.createElement("div");
+
+                heart.className = "heart";
+                heart.innerHTML = "💖";
+
+                heart.style.left = Math.random() * 100 + "vw";
+                heart.style.animationDuration =
+                    (2 + Math.random() * 2) + "s";
+
+                document.body.appendChild(heart);
+
+                setTimeout(function() {
+                    heart.remove();
+                }, 4000);
+            }
+        }
+    </script>
+
+</body>
 </html>
 
